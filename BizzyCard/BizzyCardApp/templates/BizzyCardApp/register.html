@@ -1,0 +1,45 @@
+{% extends "BizzyCardApp/base.html" %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container center oswald" id="grad"  style="border-radius: 10%; width: 350px;">  
+    <br>
+    <form action="" method="POST" class="text-center center">
+        {% csrf_token %}
+    
+        {% for field in form %}
+            <div>
+                <p>{{ field.label }}: <br> {{ field }}</p> 
+    
+                {% for error in field.errors %}
+                    <small style="color: red">{{ error }}</small>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </form>
+    <table class="table table-borderless table-responsive container">
+      <tbody>
+          <tr>
+              <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-light center text-center">Register</button>
+              </div>
+          </tr>
+      </tbody>
+      </table>
+      </form>
+      <div class="text-center">
+          <a href="login.html" class="link-dark">
+              Already have an account? Login
+          </a>
+      </div>
+  </div>
+
+{% endblock %}
